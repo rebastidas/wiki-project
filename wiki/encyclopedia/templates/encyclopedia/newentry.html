@@ -1,0 +1,33 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    NewEntry
+{% endblock %}
+    
+{% block body %}
+<div class="w-50 h-50">
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form action="{% url 'wiki:newcreation' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Entry Name</label>
+            {{ nentry.title }}
+        </div>
+
+        <div class="form-group">
+            <label>Content</label>
+            {{ nentry.content }}
+        </div>
+
+        <button class="btn btn-primary btn-block">Create</button>
+    </form>
+    
+</div>
+{% endblock %}

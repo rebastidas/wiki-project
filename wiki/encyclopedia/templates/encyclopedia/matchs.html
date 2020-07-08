@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Oops..</h1>
+
+    <h3>It looks like your entry does not exists....</h3>
+<div>
+    <p>Articules were <span>{{ search }}</span> appears:</p>
+    <ul>
+        {% for result in results %}
+        <li><a href="/wiki/{{ result }}">{{ result }}</a></li>
+        {% endfor %}
+    </ul>
+</div>    
+
+    
+{% endblock %}
